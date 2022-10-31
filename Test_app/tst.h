@@ -34,9 +34,6 @@ namespace Test1 {
 	template <class AudioEditor>
 	int tst() {
 
-		std::cout << is_defined<AudioEditor>::value << std::endl;
-		std::cout << is_defined_method<AudioEditor>::value << std::endl;
-
 		if constexpr (is_defined<AudioEditor>::value && is_defined_method<AudioEditor>::value) {
 			std::stringstream input;
 			input << "f|g|h|h|f|g|h|h|f|g|h||f|g|h|h|f|g|h||h|h|g|g|f||";

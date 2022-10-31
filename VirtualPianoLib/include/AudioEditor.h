@@ -1,12 +1,13 @@
-#include <string>
+#ifndef AUDIOEDITOR_H
+#define AUDIOEDITOR_H
 
-using std::string;
+#include "std.h"
 
 class AudioEditor {
 private:
 	string data;
 public:
-	int importAudio(string audio) { data = audio;  return -1; };
+	int importAudio(string audio);
 	string exportAudio() { return data; };
 	string exportNotes() { return data; };
 
@@ -15,3 +16,5 @@ public:
 	void replaceSymbol(string symbol, int position) {};
 	void changeOctave(int step) {};
 };
+
+#endif
