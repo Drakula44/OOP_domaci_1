@@ -1,6 +1,7 @@
-#include <string>
+#ifndef AUDIOEDITOR_H
+#define AUDIOEDITOR_H
 
-using std::string;
+#include "std.h"
 
 class AudioEditor {
 private:
@@ -15,3 +16,5 @@ public:
 	void replaceSymbol(string symbol, int position) {};
 	void changeOctave(int step) {};
 };
+
+#endif

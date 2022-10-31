@@ -1,13 +1,14 @@
-#pragma once
+#ifndef LIST_H
+#define LIST_H
+#include "std.h"
 
-
-template <typename lista>
+template <typename list>
 class Iterator
 {
 private:
-	using valueType = typename lista::valueType;
-	using node = typename lista::node;
-	friend lista;
+	using valueType = typename list::valueType;
+	using node = typename list::node;
+	friend list;
 	node* ptr;
 	Iterator(node* a) { ptr = a; };
 public:
@@ -64,7 +65,7 @@ private:
 	};
 
 	using listIterator = Iterator<list>;
-	friend class listIterator;
+	friend listIterator;
 
 	node* m_head = nullptr;
 	node* m_tail = nullptr;
@@ -76,8 +77,8 @@ public:
 	listIterator begin() { return listIterator(m_head); };
 	listIterator end() { return listIterator(nullptr); };
 
-	valueType front() {return *m_head};
-	valueType back() {return *m_tail};
+	valueType front() {return *m_head;};
+	valueType back() {return *m_tail;};
 
 	bool empty() { return m_head == nullptr; };
 	int size() { return size; };
@@ -205,3 +206,5 @@ void list<T>::print()
 	}
 	cout << endl;
 }
+
+#endif
