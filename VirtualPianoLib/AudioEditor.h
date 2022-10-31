@@ -6,7 +6,7 @@ class AudioEditor {
 private:
 	string data;
 public:
-	int importAudio(string audio) { data = audio;  return -1; };
+	int importAudio(string audio);
 	string exportAudio() { return data; };
 	string exportNotes() { return data; };
 
