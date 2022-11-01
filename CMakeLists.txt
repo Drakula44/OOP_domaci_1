@@ -2,18 +2,18 @@
 # and include sub-projects here.
 #
 cmake_minimum_required(VERSION 3.8)
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
 set(CMAKE_CXX_EXTENSIONS on)
 
-if(MSVC)
+#if(MSVC)
   # warning level 4 and all warnings as errors
-  add_compile_options(/W4 /WX)
-else()
+ # add_compile_options(/W4)
+#else()
   # lots of warnings and all warnings as errors
-  set(CMAKE_CXX_COMPILER "/usr/bin/g++")
-  add_compile_options(-std=c++20 -Wall -Wextra -pedantic -Werror -fmodules-ts)
-endif()
+#  set(CMAKE_CXX_COMPILER "/usr/bin/g++")
+#  add_compile_options(-std=c++20 -Wall -Wextra -pedantic -Werror -fmodules-ts)
+#endif()
 
 project("OOP_domaci_1")
 

@@ -1,10 +1,9 @@
 #include "../include/Note.h"
 
 Note* Note::getNote(NOTE note, OCTAVE octave) {
-    if (notes[octave][note])
+    if (notes[octave][note] != nullptr)
         return notes[octave][note];
-    else
-        return notes[octave][note] = new Note(note, octave);
+    return notes[octave][note] = new Note(note, octave);
 }
 
 Note* Note::getNote(char c) {
@@ -81,7 +80,7 @@ Note::OCTAVE Note::string2octave(string note) {
     int oct = note[note.length() - 1] - '0';
     if (oct < 2 || oct > 6)
         throw "Invalid note";
-    return (OCTAVE)oct;
+    return static_cast<OCTAVE>(oct-2);
 }
 
 char Note::STR2C[5][12] = {

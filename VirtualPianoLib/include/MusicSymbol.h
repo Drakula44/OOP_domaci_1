@@ -4,7 +4,7 @@
 #include "std.h"
 class MusicSymbol {
 public:
-    enum TYPE { NOTE, PAUSE8, PAUSE4, PAUSE2 };
+    enum TYPE { NOTE =1, PAUSE8=1, PAUSE4=2, PAUSE2=4 };
 
 protected:
     TYPE type;

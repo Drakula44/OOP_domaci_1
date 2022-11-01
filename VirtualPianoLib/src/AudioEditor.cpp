@@ -3,6 +3,12 @@
 int AudioEditor::importAudio(string audio) {
     bool chord = false;
     int start_chord = 0;
+    //MusicSymbol* test = nullptr;
+    //cout << static_cast<void*>(test) << " ";
+
+    //test = Note::getNote(Note::A, Note::_2);
+    //cout << static_cast<void*>(test) << " ";
+    //cout << test->getString() << endl;
 
     for (size_t i = 0; i < audio.size(); i++) {
         try {
@@ -11,10 +17,9 @@ int AudioEditor::importAudio(string audio) {
             if (chord && audio[i] == '[')
                 throw "Invalid input";
         } catch (...) {
-            std::cerr << "Error" << '\n';
+            cout << "Error" << '\n';
         }
 
-        cout << audio[i] << " _ " << i << endl;
         if (audio[i] == '[')
             chord = true, start_chord = i;
         else if (chord && audio[i] == ']') {
@@ -35,7 +40,6 @@ int AudioEditor::importAudio(string audio) {
                 cout << "Error in pause" << endl;
             }
         else if (audio[i] == '|') {
-            cout << endl << audio.size() << " " << i + 1 << endl;
             try {
                 if (i + 1 < audio.size() && audio[i + 1] == '|') {
                     music.push_back(Pause::getPause("||"));
@@ -60,13 +64,40 @@ int AudioEditor::importAudio(string audio) {
 string AudioEditor::exportAudio() {
     string audio = "";
     for (auto symbol : music) {
-        cout << "testtt" << endl;
-        cout << symbol->checkType() << endl;
         audio += symbol->getString();
     }
     return audio;
 }
-string AudioEditor::exportNotes() { return ""; };
+
+// improve this
+string AudioEditor::exportNotes() {
+    string audio = "";
+    int count = 0;
+    for (auto it = music.begin(); it != music.end();++it) {
+        auto sym = (*it)->getSymbol();
+        ++it;
+        int rep = 1;
+        if (it != music.end())
+            rep = (*it)->checkType();
+            
+        else {
+            audio += sym;
+            break;
+        }
+        for (; rep > 0; rep--) {
+            audio += sym;
+            count++;
+            if (count == 8) {
+                count = 0;
+                audio += "\n";
+            }
+        }
+        count += (*it)->checkType()-1;
+        --it;
+
+    }
+    return audio;
+};
 
 void AudioEditor::insertSymbol(string symbol, int position) {
     if (position < 0 || position > music.size())

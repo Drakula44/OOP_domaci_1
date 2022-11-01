@@ -7,7 +7,7 @@
 class Note : public MusicSymbol {
 public:
     enum NOTE { C, CS, D, DS, E, F, FS, G, GS, A, AS, B };
-    enum OCTAVE { _2 = 2, _3, _4, _5, _6 };
+    enum OCTAVE { o2, o3, o4, o5, o6 };
 
 private:
     NOTE note;
@@ -28,11 +28,10 @@ public:
     static NOTE string2note(string note);
     static OCTAVE string2octave(string note);
 
-    string getString() override {
-        cout << "tees" << endl;
+    string getSymbol() override {
         return C2STR[static_cast<int>(STR2C[octave][note] - '!')];
     };
-    string getSymbol() override { return string(1, STR2C[octave][note]); };
+    string getString() override { return string(1, STR2C[octave][note]); };
 
 private:
     Note(NOTE note, OCTAVE octave)

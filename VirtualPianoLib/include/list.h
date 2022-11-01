@@ -100,6 +100,7 @@ template <typename T> void list<T>::insert(listIterator pos, valueType value) {
         return push_front(value);
     if (pos.ptr == nullptr)
         return push_back(value);
+    m_size++;
     auto tmp = new node(value, pos.ptr->prev, pos.ptr);
     if (pos.ptr->prev != nullptr)
         pos.ptr->prev->next = tmp;
@@ -107,8 +108,9 @@ template <typename T> void list<T>::insert(listIterator pos, valueType value) {
 }
 
 template <typename T> void list<T>::push_back(valueType value) {
+    m_size++;
     if (m_head == nullptr)
-        m_head = m_tail = new node(value, m_tail);
+        m_head = m_tail = new node(value, nullptr);
     else {
         m_tail->next = new node(value, m_tail);
         m_tail = m_tail->next;
@@ -116,6 +118,7 @@ template <typename T> void list<T>::push_back(valueType value) {
 }
 
 template <typename T> void list<T>::push_front(valueType value) {
+    m_size++;
     if (m_tail == nullptr)
         m_tail = m_head = new node(value, m_tail);
     else {
@@ -125,6 +128,7 @@ template <typename T> void list<T>::push_front(valueType value) {
 }
 
 template <typename T> void list<T>::pop_back() {
+    m_size--;
     if (m_tail == m_head) {
         delete m_tail;
         m_tail = m_head = nullptr;
@@ -137,6 +141,7 @@ template <typename T> void list<T>::pop_back() {
 }
 
 template <typename T> void list<T>::pop_front() {
+    m_size--;
     if (m_tail == m_head) {
         delete m_head;
         m_tail = m_head = nullptr;

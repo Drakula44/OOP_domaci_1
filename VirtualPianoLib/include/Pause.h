@@ -21,7 +21,7 @@ public:
     static string enum2string(PAUSE pause);
 
     string getString() override { return enum2string(pause); };
-    string getSymbol() override { return enum2string(pause); };
+    string getSymbol() override;
     Pause* shiftOctave(int shift) override {
         (void)(shift);
         return this;

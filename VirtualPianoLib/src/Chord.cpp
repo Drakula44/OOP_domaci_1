@@ -21,14 +21,14 @@ Chord* Chord::shiftOctave(int shift) {
 }
 
 string Chord::getString() {
-    string str;
+    string str = "[";
     for (auto& note : notes)
         str += note->getString() + " ";
-    return str;
+    return str + "]";
 }
 string Chord::getSymbol() {
-    string str;
+    string str = "[";
     for (auto& note : notes)
         str += note->getSymbol() + " ";
-    return str;
+    return str + "]";
 }

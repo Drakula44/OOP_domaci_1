@@ -32,6 +32,8 @@ Pause::PAUSE Pause::string2enum(string pause) {
     throw "Invalid pause";
 }
 
+
+
 string Pause::enum2string(PAUSE pause) {
     switch (pause) {
     case f8:
@@ -42,4 +44,15 @@ string Pause::enum2string(PAUSE pause) {
         return "||";
     }
     throw "Invalid pause";
+}
+
+string Pause::getSymbol() {
+    switch (pause) {
+    case f8:
+        return "_";
+    case f4:
+        return "__";
+    case f2:
+        return "____";
+    }
 }
