@@ -1,20 +1,28 @@
-#ifndef AUDIOEDITOR_H
-#define AUDIOEDITOR_H
+#ifndef _audio_editor_h
+#define _audio_editor_h
+
+#include "Chord.h"
+#include "MusicSymbol.h"
+#include "Note.h"
+#include "Pause.h"
+#include "list.h"
 
 #include "std.h"
 
 class AudioEditor {
 private:
-	string data;
-public:
-	int importAudio(string audio);
-	string exportAudio() { return data; };
-	string exportNotes() { return data; };
+    string data;
+    list<MusicSymbol*> music;
 
-	void insertSymbol(string symbol, int position) {};
-	void deleteSymbol(int position) {};
-	void replaceSymbol(string symbol, int position) {};
-	void changeOctave(int step) {};
+public:
+    int importAudio(string audio);
+    string exportAudio();
+    string exportNotes();
+
+    void insertSymbol(string symbol, int position);
+    void deleteSymbol(int position);
+    void replaceSymbol(string symbol, int position);
+    void changeOctave(int step);
 };
 
 #endif

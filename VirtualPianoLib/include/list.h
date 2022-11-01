@@ -15,20 +15,18 @@ public:
         ptr = ptr->next;
         return *this;
     }
-    Iterator& operator++(int) {
-        auto tmp = *this;
-        ptr = ptr->next;
-        return tmp;
-    }
+    // Iterator& operator++(int) {
+    //     ptr = ptr->next;
+    //     return Iterator(ptr->prev);
+    // }
     Iterator& operator--() {
         ptr = ptr->prev;
         return *this;
     }
-    Iterator& operator--(int) {
-        auto tmp = *this;
-        ptr = ptr->prev;
-        return tmp;
-    }
+    // Iterator& operator--(int) {
+    //     ptr = ptr->prev;
+    //     return Iterator(ptr->prev);
+    // }
 
     valueType& operator*() { return ptr->val; }
 
@@ -40,12 +38,12 @@ template <typename T> class list {
 private:
     using valueType = T;
     struct node {
-        node* next = nullptr;
-        node* prev = nullptr;
         valueType val;
+        node* prev = nullptr;
+        node* next = nullptr;
         node(valueType x) : val{x} {};
         node(valueType x, node* prev, node* next = nullptr)
-            : val{x}, next{next}, prev{prev} {};
+            : val{x}, prev{prev}, next{next} {};
     };
 
     using listIterator = Iterator<list>;
@@ -65,7 +63,7 @@ public:
     valueType back() { return *m_tail; };
 
     bool empty() { return m_head == nullptr; };
-    int size() { return size; };
+    int size() { return m_size; };
 
     ~list();
 
@@ -127,11 +125,11 @@ template <typename T> void list<T>::push_front(valueType value) {
 }
 
 template <typename T> void list<T>::pop_back() {
-    valueType tmp = m_tail->val;
     if (m_tail == m_head) {
         delete m_tail;
         m_tail = m_head = nullptr;
-    } else {
+    }
+    else {
         m_tail = m_tail->prev;
         delete m_tail->next;
         m_tail->next = nullptr;
@@ -139,11 +137,11 @@ template <typename T> void list<T>::pop_back() {
 }
 
 template <typename T> void list<T>::pop_front() {
-    valueType tmp = m_tail->val;
     if (m_tail == m_head) {
         delete m_head;
         m_tail = m_head = nullptr;
-    } else {
+    }
+    else {
         m_head = m_head->next;
         delete m_head->prev;
         m_head->prev = nullptr;
