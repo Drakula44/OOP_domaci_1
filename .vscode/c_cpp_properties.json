@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/VirtualPianoLib",
+                "${workspaceFolder}/VirtualPianoLib/include",
+                "${workspaceFolder}/VirtualPianoLib/src"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "configurationProvider": "ms-vscode.makefile-tools",
+            "macFrameworkPath": [],
+            "browse": {
+                "path": [
+                    "/usr/include/c++/12.2.0"
+                ]
+            },
+            "compilerArgs": [],
+            "mergeConfigurations": true
+        }
+    ],
+    "version": 4
+}

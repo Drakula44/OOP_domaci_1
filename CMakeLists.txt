@@ -1,22 +1,25 @@
 ﻿# CMakeList.txt : Top-level CMake project file, do global configuration
 # and include sub-projects here.
 #
-cmake_minimum_required (VERSION 3.8)
-set (CMAKE_CXX_STANDARD 17)
-set (CMAKE_CXX_STANDARD_REQUIRED on)
-set (CMAKE_CXX_EXTENSIONS on)
-if (MSVC)
-    # warning level 4 and all warnings as errors
-    add_compile_options(/W4 /WX)
+cmake_minimum_required(VERSION 3.8)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED on)
+set(CMAKE_CXX_EXTENSIONS on)
+
+if(MSVC)
+  # warning level 4 and all warnings as errors
+  add_compile_options(/W4 /WX)
 else()
-    # lots of warnings and all warnings as errors
-    add_compile_options(-Wall -Wextra -pedantic -Werror)
+  # lots of warnings and all warnings as errors
+  set(CMAKE_CXX_COMPILER "/usr/bin/g++")
+  add_compile_options(-std=c++20 -Wall -Wextra -pedantic -Werror -fmodules-ts)
 endif()
-project ("OOP_domaci_1")
+
+project("OOP_domaci_1")
 
 # Include sub-projects.
-add_subdirectory ("VirtualPianoLib")
-add_subdirectory ("Test_app")
+add_subdirectory("VirtualPianoLib")
+add_subdirectory("Test_app")
 
 add_custom_command(
   OUTPUT test.lic

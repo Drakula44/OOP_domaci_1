@@ -1,0 +1,14 @@
+﻿---
+BasedOnStyle: LLVM
+AccessModifierOffset: '-4'
+ConstructorInitializerIndentWidth: '4'
+ContinuationIndentWidth: '4'
+IndentWidth: '4'
+NamespaceIndentation: None
+ObjCBlockIndentWidth: '0'
+PointerAlignment: Left
+
+BreakBeforeBraces: Custom
+BraceWrapping:
+    BeforeElse: true
+...
