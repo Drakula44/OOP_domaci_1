@@ -1,7 +1,14 @@
-#include<string>
-#include<iostream>
+#ifndef _std_h
+#define _std_h
 
-using std::cout;
-using std::endl;
-using std::cin;
+#include <cstddef>
+#include <iostream>
+#include <string>
+
+using std::cin;  // NOLINT
+using std::cout; // NOLINT
+using std::endl; // NOLINT
+using std::ostream;
 using std::string;
+
+#endif

@@ -1,8 +1,6 @@
-#ifndef MUSICSYMBOL_H
-#define MUSICSYMBOL_H
+#ifndef _music_symbol_h_
+#define _music_symbol_h_
 
-class MusicSymbol{
-
-};
+class MusicSymbol {};
 
 #endif
