@@ -17,6 +17,14 @@ int main() {
     pts += Test4::tst<AudioEditor>();
     pts += Test5::tst<AudioEditor>();
     pts += Test6::tst<AudioEditor>();
+    pts += Test7::tst<AudioEditor>();
+    pts += Test8::tst<AudioEditor>();
+    pts += Test9::tst<AudioEditor>();
+    pts += Test10::tst<AudioEditor>();
+    pts += Test11::tst<AudioEditor>();
+    pts += Test12::tst<AudioEditor>();
+    pts += Test13::tst<AudioEditor>();
+    pts += Test14::tst<AudioEditor>();
     std::cout << "Percentage: " << pts << "%" << std::endl;
 
     return 0;

@@ -14,8 +14,9 @@ public:
 
     Chord* shiftNote(int shift);
     Chord* shiftOctave(int shift) override;
-    string getString() override;
-    string getSymbol() override;
+    void deleteSymbol() override;
+    string getString() const override;
+    string getSymbol() const override;
 };
 
 #endif

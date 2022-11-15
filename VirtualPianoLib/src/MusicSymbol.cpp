@@ -1,1 +1,1 @@
-#include "../include/MusicSymbol.h"
+#include "MusicSymbol.h"

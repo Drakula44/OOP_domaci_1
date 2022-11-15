@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/home/drakula/etf/oop/OOP_domaci_1/out/build/debug64",
+  "command": "/usr/bin/clang++ -I/home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib/include -std=c++20 -g -O0 -Wall -Wextra -pedantic -Werror -fmodules-ts -std=gnu++17 -o VirtualPianoLib/CMakeFiles/VirtualPianoLib.dir/src/AudioEditor.cpp.o -c /home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib/src/AudioEditor.cpp",
+  "file": "/home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib/src/AudioEditor.cpp"
+},
+{
+  "directory": "/home/drakula/etf/oop/OOP_domaci_1/out/build/debug64",
+  "command": "/usr/bin/clang++ -I/home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib/include -std=c++20 -g -O0 -Wall -Wextra -pedantic -Werror -fmodules-ts -std=gnu++17 -o VirtualPianoLib/CMakeFiles/VirtualPianoLib.dir/src/Chord.cpp.o -c /home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib/src/Chord.cpp",
+  "file": "/home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib/src/Chord.cpp"
+},
+{
+  "directory": "/home/drakula/etf/oop/OOP_domaci_1/out/build/debug64",
+  "command": "/usr/bin/clang++ -I/home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib/include -std=c++20 -g -O0 -Wall -Wextra -pedantic -Werror -fmodules-ts -std=gnu++17 -o VirtualPianoLib/CMakeFiles/VirtualPianoLib.dir/src/MusicSymbol.cpp.o -c /home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib/src/MusicSymbol.cpp",
+  "file": "/home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib/src/MusicSymbol.cpp"
+},
+{
+  "directory": "/home/drakula/etf/oop/OOP_domaci_1/out/build/debug64",
+  "command": "/usr/bin/clang++ -I/home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib/include -std=c++20 -g -O0 -Wall -Wextra -pedantic -Werror -fmodules-ts -std=gnu++17 -o VirtualPianoLib/CMakeFiles/VirtualPianoLib.dir/src/Note.cpp.o -c /home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib/src/Note.cpp",
+  "file": "/home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib/src/Note.cpp"
+},
+{
+  "directory": "/home/drakula/etf/oop/OOP_domaci_1/out/build/debug64",
+  "command": "/usr/bin/clang++ -I/home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib/include -std=c++20 -g -O0 -Wall -Wextra -pedantic -Werror -fmodules-ts -std=gnu++17 -o VirtualPianoLib/CMakeFiles/VirtualPianoLib.dir/src/Pause.cpp.o -c /home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib/src/Pause.cpp",
+  "file": "/home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib/src/Pause.cpp"
+},
+{
+  "directory": "/home/drakula/etf/oop/OOP_domaci_1/out/build/debug64",
+  "command": "/usr/bin/clang++ -I/home/drakula/etf/oop/OOP_domaci_1/VirtualPianoLib -std=c++20 -g -O0 -Wall -Wextra -pedantic -Werror -fmodules-ts -std=gnu++17 -o Test_app/CMakeFiles/Test_app.dir/source.cpp.o -c /home/drakula/etf/oop/OOP_domaci_1/Test_app/source.cpp",
+  "file": "/home/drakula/etf/oop/OOP_domaci_1/Test_app/source.cpp"
+}
+]

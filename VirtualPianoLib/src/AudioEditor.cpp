@@ -1,15 +1,8 @@
-#include "../include/AudioEditor.h"
+#include "AudioEditor.h"
 
 int AudioEditor::importAudio(string audio) {
     bool chord = false;
     int start_chord = 0;
-    //MusicSymbol* test = nullptr;
-    //cout << static_cast<void*>(test) << " ";
-
-    //test = Note::getNote(Note::A, Note::_2);
-    //cout << static_cast<void*>(test) << " ";
-    //cout << test->getString() << endl;
-
     for (size_t i = 0; i < audio.size(); i++) {
         try {
             if (!chord && audio[i] == ']')
@@ -25,6 +18,8 @@ int AudioEditor::importAudio(string audio) {
         else if (chord && audio[i] == ']') {
             chord = false;
             try {
+                cout << "Chord: "
+                     << audio.substr(start_chord, i - start_chord + 1) << '\n';
                 music.push_back(
                     new Chord(audio.substr(start_chord, i - start_chord + 1)));
             } catch (...) {
@@ -73,13 +68,13 @@ string AudioEditor::exportAudio() {
 string AudioEditor::exportNotes() {
     string audio = "";
     int count = 0;
-    for (auto it = music.begin(); it != music.end();++it) {
+    for (auto it = music.begin(); it != music.end(); ++it) {
         auto sym = (*it)->getSymbol();
         ++it;
         int rep = 1;
         if (it != music.end())
             rep = (*it)->checkType();
-            
+
         else {
             audio += sym;
             break;
@@ -92,9 +87,8 @@ string AudioEditor::exportNotes() {
                 audio += "\n";
             }
         }
-        count += (*it)->checkType()-1;
+        count += (*it)->checkType() - 1;
         --it;
-
     }
     return audio;
 };
@@ -129,6 +123,8 @@ void AudioEditor::replaceSymbol(string symbol, int position) {
         tmp = new Chord(symbol);
     else
         tmp = Note::getNote(symbol);
+    // (*it)->deleteSymbol();
+    // if ((*it)->checkType() == TYPE::)
     *it = tmp;
 }
 void AudioEditor::changeOctave(int step) {

@@ -15,12 +15,14 @@ private:
     static Note* notes[5][12];
     static char STR2C[5][12];
     static string C2STR[];
+    static int count[5];
 
 public:
     static Note* getNote(char c);
     static Note* getNote(NOTE note, OCTAVE octave);
     static Note* getNote(string note);
 
+    void deleteSymbol() override;
     Note* shiftOctave(int shift) override;
     Note* shiftNote(int shift);
 
@@ -28,10 +30,8 @@ public:
     static NOTE string2note(string note);
     static OCTAVE string2octave(string note);
 
-    string getSymbol() override {
-        return C2STR[static_cast<int>(STR2C[octave][note] - '!')];
-    };
-    string getString() override { return string(1, STR2C[octave][note]); };
+    string getSymbol() const override;
+    string getString() const override;
 
 private:
     Note(NOTE note, OCTAVE octave)

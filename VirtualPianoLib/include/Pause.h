@@ -20,8 +20,9 @@ public:
     static PAUSE string2enum(string pause);
     static string enum2string(PAUSE pause);
 
-    string getString() override { return enum2string(pause); };
-    string getSymbol() override;
+    void deleteSymbol() override{};
+    string getString() const override { return enum2string(pause); };
+    string getSymbol() const override;
     Pause* shiftOctave(int shift) override {
         (void)(shift);
         return this;
