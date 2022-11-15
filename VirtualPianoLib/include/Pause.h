@@ -6,7 +6,7 @@
 
 class Pause : public MusicSymbol {
 public:
-    enum PAUSE { f8, f4, f2 };
+    enum class PAUSE{ f8, f4, f2 };
 
 private:
     PAUSE pause;
@@ -19,14 +19,12 @@ public:
     static Pause* getPause(PAUSE pause);
     static PAUSE string2enum(string pause);
     static string enum2string(PAUSE pause);
+    static void deleteSingletons();
 
-    void deleteSymbol() override{};
-    string getString() const override { return enum2string(pause); };
-    string getSymbol() const override;
-    Pause* shiftOctave(int shift) override {
-        (void)(shift);
-        return this;
-    };
+    MusicSymbol* deleteSymbol() override { return nullptr; };
+    string getString() const override;
+    string getAudio() const override;
+    Pause* shiftOctave(int shift);
 };
 
 #endif

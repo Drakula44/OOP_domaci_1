@@ -1,6 +1,6 @@
 #include "Chord.h"
 
-Chord::Chord(string chord) : MusicSymbol(NOTE) {
+Chord::Chord(string chord) : MusicSymbol(TYPE::NOTE) {
     for (size_t i = 0; i < chord.size(); i++) {
         if (chord[i] == ' ' || chord[i] == '|' || chord[i] == '[' ||
             chord[i] == ']')
@@ -10,15 +10,11 @@ Chord::Chord(string chord) : MusicSymbol(NOTE) {
     }
 }
 
-void Chord::deleteSymbol() {
+MusicSymbol* Chord::deleteSymbol() {
     for (auto note : notes)
         note->deleteSymbol();
-}
-
-Chord* Chord::shiftNote(int shift) {
-    for (auto note : notes)
-        note = note->shiftNote(shift);
-    return this;
+    delete this;
+    return nullptr;
 }
 
 Chord* Chord::shiftOctave(int shift) {
@@ -34,9 +30,9 @@ string Chord::getString() const {
     return str + "]";
 }
 
-string Chord::getSymbol() const {
+string Chord::getAudio() const {
     string str = "[";
     for (const auto& note : notes)
-        str += note->getSymbol();
+        str += note->getAudio();
     return str + "]";
 }

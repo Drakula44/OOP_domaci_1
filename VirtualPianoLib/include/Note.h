@@ -22,20 +22,23 @@ public:
     static Note* getNote(NOTE note, OCTAVE octave);
     static Note* getNote(string note);
 
-    void deleteSymbol() override;
+    static int checkOctaveCount(int octave) { return count[octave]; }
+
+    MusicSymbol* deleteSymbol() override;
     Note* shiftOctave(int shift) override;
-    Note* shiftNote(int shift);
 
     static string char2string(char c);
     static NOTE string2note(string note);
     static OCTAVE string2octave(string note);
 
-    string getSymbol() const override;
+    string getAudio() const override;
     string getString() const override;
+    
+    static void deleteSingletons();
 
 private:
     Note(NOTE note, OCTAVE octave)
-        : MusicSymbol(MusicSymbol::NOTE), note(note), octave(octave){};
+        : MusicSymbol(TYPE::NOTE), note(note), octave(octave){};
 };
 
 #endif

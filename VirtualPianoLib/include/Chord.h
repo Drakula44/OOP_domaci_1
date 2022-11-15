@@ -3,6 +3,7 @@
 
 #include "Note.h"
 #include "list.h"
+#include "std.h"
 
 class Chord : public MusicSymbol {
 private:
@@ -12,11 +13,12 @@ public:
     Chord(list<Note*>);
     Chord(string);
 
-    Chord* shiftNote(int shift);
     Chord* shiftOctave(int shift) override;
-    void deleteSymbol() override;
+    MusicSymbol* deleteSymbol() override;
     string getString() const override;
-    string getSymbol() const override;
+    string getAudio() const override;
+
+    ~Chord() {notes.clear();};
 };
 
 #endif

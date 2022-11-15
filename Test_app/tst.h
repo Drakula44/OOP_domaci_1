@@ -535,8 +535,8 @@ namespace Test11 {
 			editor.changeOctave(-1);
 
 			std::stringstream output;
-			output << "f|g|h|h1f|g|h|h|f|g|h||f|g|h|h|f|g|h||h|h|g|g|f||";
-
+			output << "f|g|h|1|f|g|h|h|f|g|h||f|g|h|h|f|g|h||h|h|g|g|f||";
+                        std::cout << "Test11" << std::endl;
 			std::cout << editor.exportAudio() << std::endl;
 			std::cout << "-------------------------------------" << endl;
 			std::cout << output.str() << std::endl;

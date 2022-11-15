@@ -23,6 +23,7 @@ public:
     void deleteSymbol(int position);
     void replaceSymbol(string symbol, int position);
     void changeOctave(int step);
+    ~AudioEditor();
 };
 
 #endif

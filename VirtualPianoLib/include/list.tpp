@@ -9,6 +9,7 @@ template <typename T> void list<T>::erase(listIterator pos) {
         return pop_back();
     tmp->prev->next = tmp->next;
     tmp->next->prev = tmp->prev;
+    m_size--;
     delete tmp;
 }
 

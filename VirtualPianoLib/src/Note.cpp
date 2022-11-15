@@ -1,6 +1,7 @@
 #include "Note.h"
 
 Note* Note::getNote(NOTE note, OCTAVE octave) {
+    count[octave] += 1;
     if (notes[octave][note] != nullptr)
         return notes[octave][note];
     return notes[octave][note] = new Note(note, octave);
@@ -22,12 +23,6 @@ Note* Note::shiftOctave(int shift) {
     return getNote(note, (OCTAVE)(octave + shift));
 }
 
-Note* Note::shiftNote(int shift) {
-    if (note + shift < 0 || note + shift > 11)
-        return nullptr;
-    return getNote((NOTE)(note + shift), octave);
-}
-
 string Note::char2string(char c) {
     if (c < '!' || c > '{')
         throw "Invalid note";
@@ -37,13 +32,18 @@ string Note::char2string(char c) {
     return tmp;
 }
 
-void Note::deleteSymbol() { count[octave]--; }
+MusicSymbol* Note::deleteSymbol() {
+    count[octave]--;
+    return nullptr;
+}
 
-string Note::getSymbol() const {
+string Note::getString() const {
     return C2STR[static_cast<int>(STR2C[octave][note] - '!')];
 };
 
-string Note::getString() const { return string(1, STR2C[octave][note]); };
+string Note::getAudio() const {
+    return string(1, STR2C[octave][note]);
+};
 
 Note::NOTE Note::string2note(string note) {
     if (note.length() == 2) {
@@ -63,7 +63,7 @@ Note::NOTE Note::string2note(string note) {
         case 'B':
             return B;
         default:
-            break;
+            throw "INVALID NOTE";
         }
     }
     if (note.length() == 3) {
@@ -91,6 +91,17 @@ Note::OCTAVE Note::string2octave(string note) {
     if (oct < 2 || oct > 6)
         throw "Invalid note";
     return static_cast<OCTAVE>(oct - 2);
+}
+
+void Note::deleteSingletons() {
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 12; j++) {
+            if (notes[i][j]) {
+                delete notes[i][j];
+                notes[i][j] = nullptr;
+            }
+        }
+    }
 }
 
 char Note::STR2C[5][12] = {
